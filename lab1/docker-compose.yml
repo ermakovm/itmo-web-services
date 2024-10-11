@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ws_lab1
+      - POSTGRES_INITDB_ARGS='-E UTF-8'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init_db/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+    networks:
+      - ws-lab1
+
+  glassfish:
+    image: ghcr.io/eclipse-ee4j/glassfish
+    ports:
+      - "8081:8080"
+      - "4848:4848"
+    networks:
+      - ws-lab1
+
+volumes:
+  postgres_data:
+
+networks:
+  ws-lab1:
