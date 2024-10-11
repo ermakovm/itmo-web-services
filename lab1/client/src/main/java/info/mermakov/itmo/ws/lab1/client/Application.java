@@ -10,7 +10,7 @@ import java.util.logging.Level;
 public class Application {
     public static void main(String[] args) {
         try {
-            URL serviceUrl = new URI("http://127.0.0.1:8080/MovieService?wsdl").toURL();
+            URL serviceUrl = new URI("http://127.0.0.1:8080/ws/movie-service?wsdl").toURL();
 
             Client client = new Client(serviceUrl);
             client.startClient();

@@ -9,7 +9,7 @@ import java.util.logging.Level;
 
 public class Application {
     public static void main(String[] args) {
-        String serviceUrl = "http://0.0.0.0:8080/Movie";
+        String serviceUrl = "http://0.0.0.0:8080/ws/movie-service";
         MovieWebService service = new MovieWebService();
         Endpoint.publish(serviceUrl, service);
 

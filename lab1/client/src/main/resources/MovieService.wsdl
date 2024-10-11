@@ -8,7 +8,7 @@
     <types>
         <xsd:schema>
             <xsd:import namespace="http://service.lab1.ws.itmo.mermakov.info/"
-                        schemaLocation="http://127.0.0.1:8080/Movie?xsd=1"/>
+                        schemaLocation="http://127.0.0.1:8080/ws/movie-service?xsd=1"/>
         </xsd:schema>
     </types>
     <message name="getMovies">
@@ -39,7 +39,7 @@
     </binding>
     <service name="MovieService">
         <port name="MovieWebServicePort" binding="tns:MovieWebServicePortBinding">
-            <soap:address location="http://127.0.0.1:8080/Movie"/>
+            <soap:address location="http://127.0.0.1:8080/ws/movie-service"/>
         </port>
     </service>
 </definitions>
