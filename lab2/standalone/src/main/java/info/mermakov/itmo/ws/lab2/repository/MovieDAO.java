@@ -1,7 +1,7 @@
-package info.mermakov.itmo.ws.lab1.repository;
+package info.mermakov.itmo.ws.lab2.repository;
 
-import info.mermakov.itmo.ws.lab1.config.ConnectionUtil;
-import info.mermakov.itmo.ws.lab1.model.*;
+import info.mermakov.itmo.ws.lab2.config.ConnectionUtil;
+import info.mermakov.itmo.ws.lab2.model.*;
 import lombok.extern.java.Log;
 
 import java.sql.Connection;
@@ -17,6 +17,27 @@ import java.util.stream.Collectors;
 public class MovieDAO {
     private static final String DEFAULT_QUERY = "select * from movies";
     private static final String QUERY = "select * from movies where ";
+    private static final String DELETE_QUERY = "delete from movies where id = ?";
+
+    public Boolean deleteMovie(Long movieId) {
+        try (Connection connection = ConnectionUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_QUERY)
+        ) {
+            statement.setLong(1, movieId);
+            return statement.executeUpdate() > 0;
+        } catch (SQLException exception) {
+            log.log(Level.SEVERE, exception.getMessage(), exception);
+            throw new RuntimeException(exception);
+        }
+    }
+
+    public Boolean updateMovie(Long movieId, ChangeRequest request) {
+        return false;
+    }
+
+    public Long createMovie(ChangeRequest request) {
+        return 0L;
+    }
 
     public List<Movie> getMovies(Request request) {
         if (request != null && request.getRequestData() != null && !request.getRequestData().isEmpty()) {
@@ -49,10 +70,11 @@ public class MovieDAO {
                         String valueStr = "%" + value + "%";
                         statement.setString(index++, valueStr);
                     } else {
-                        Short shortValue = Short.parseShort(value);
+                        short shortValue = Short.parseShort(value);
                         statement.setShort(index++, shortValue);
                     }
                 }
+
 
                 ResultSet resultSet = statement.executeQuery();
 
@@ -66,7 +88,8 @@ public class MovieDAO {
 
     private List<Movie> executeQuery() {
         try (Connection connection = ConnectionUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(DEFAULT_QUERY)) {
+             PreparedStatement statement = connection.prepareStatement(DEFAULT_QUERY)
+        ) {
             ResultSet resultSet = statement.executeQuery();
 
             return getMovies(resultSet);

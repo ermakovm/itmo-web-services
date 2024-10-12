@@ -1,4 +1,4 @@
-package info.mermakov.itmo.ws.lab1.client;
+package info.mermakov.itmo.ws.lab2.client;
 
 import ws.*;
 
@@ -20,6 +20,7 @@ public class Client {
 
     public void startClient() {
         printHelp();
+
         int userChoice = 0;
         while ((userChoice = SCANNER.nextInt()) > 0) {
             switch (userChoice) {
@@ -34,11 +35,73 @@ public class Client {
                     processCustomRequest();
                     break;
                 case 3:
+                    processAddMovie();
+                    break;
+                case 4:
+                    deleteMovie();
+                    break;
+                case 5:
+                    processUpdateMovie();
+                    break;
+                case 6:
                     return;
                 default:
                     printHelp();
             }
         }
+    }
+
+    private void processAddMovie() {
+        ChangeRequest changeRequest = getChangeRequest();
+
+        Long result = movieService.getMovieWebServicePort().addMovie(changeRequest);
+        System.out.println("New movie added: " + result);
+        System.out.println("--");
+        printHelp();
+    }
+
+    private void processUpdateMovie() {
+        System.out.println("--" + DELIMETER
+                + "Movie id for update:" + DELIMETER);
+        Long id = SCANNER.nextLong();
+        ChangeRequest request = getChangeRequest();
+        Boolean result = movieService.getMovieWebServicePort().updateMovie(id, request);
+        System.out.println("Update result: " + result);
+        System.out.println("--");
+        printHelp();
+    }
+
+    private ChangeRequest getChangeRequest() {
+        System.out.println("--" + DELIMETER
+                + "Title:" + DELIMETER);
+        String title = SCANNER.nextLine();
+        System.out.println("Studio:" + DELIMETER);
+        String studio = SCANNER.nextLine();
+        System.out.println("Director:" + DELIMETER);
+        String director = SCANNER.nextLine();
+        System.out.println("Year:" + DELIMETER);
+        Short year = SCANNER.nextShort();
+        System.out.println("Duration:" + DELIMETER);
+        Short duration = SCANNER.nextShort();
+
+        ChangeRequest changeRequest = new ChangeRequest();
+        changeRequest.setTitle(title);
+        changeRequest.setStudio(studio);
+        changeRequest.setDirector(director);
+        changeRequest.setYear(year);
+        changeRequest.setDuration(duration);
+
+        return changeRequest;
+    }
+
+    private void deleteMovie() {
+        System.out.println("--" + DELIMETER
+                + "Enter id for deletion:" + DELIMETER);
+        long deleteId = SCANNER.nextLong();
+        Boolean result = movieService.getMovieWebServicePort().deleteMovie(deleteId);
+        System.out.println("Deletion result: " + result);
+        System.out.println("--");
+        printHelp();
     }
 
     private void processCustomRequest() {
@@ -130,6 +193,7 @@ public class Client {
                         + "5. LTE" + DELIMETER);
                 break;
         }
+
     }
 
     private void printSelectCriteria() {
@@ -146,7 +210,10 @@ public class Client {
         System.out.println("Usage: " + DELIMETER
                 + "1. Get all movies" + DELIMETER
                 + "2. Find movies" + DELIMETER
-                + "3. Exit" + DELIMETER);
+                + "3. Add movie" + DELIMETER
+                + "4. Delete movie" + DELIMETER
+                + "5. Update movie" + DELIMETER
+                + "6. Exit" + DELIMETER);
     }
 
     private void printMovies(List<Movie> movies) {
