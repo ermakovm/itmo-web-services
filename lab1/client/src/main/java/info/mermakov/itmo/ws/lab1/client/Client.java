@@ -66,6 +66,7 @@ public class Client {
 
             System.out.println("--" + DELIMETER
                     + "Enter search string: " + DELIMETER);
+            SCANNER.nextLine();
             String searchString = SCANNER.nextLine();
 
             RequestData newData = new RequestData();

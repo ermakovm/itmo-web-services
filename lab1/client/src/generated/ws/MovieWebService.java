@@ -25,7 +25,7 @@ public interface MovieWebService {
     @WebResult(name = "return", targetNamespace = "")
     public java.util.List<ws.Movie> getMovies(
 
-            @WebParam(name = "request", targetNamespace = "")
-            ws.Request request
+        @WebParam(name = "request", targetNamespace = "")
+        ws.Request request
     );
 }

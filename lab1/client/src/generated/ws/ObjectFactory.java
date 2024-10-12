@@ -1,11 +1,10 @@
 
 package ws;
 
+import javax.xml.namespace.QName;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
-
-import javax.xml.namespace.QName;
 
 
 /**
@@ -77,7 +76,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetMovies }{@code >}
-     *
+     * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
@@ -90,7 +89,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetMoviesResponse }{@code >}
-     *
+     * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
