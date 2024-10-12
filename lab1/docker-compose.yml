@@ -1,5 +1,5 @@
 services:
-  postgres:
+  postgres-lab1:
     image: postgres:14-alpine
     environment:
       - POSTGRES_USER=postgres
@@ -11,14 +11,6 @@ services:
       - ./init_db/:/docker-entrypoint-initdb.d/
     ports:
       - "5432:5432"
-    networks:
-      - ws-lab1
-
-  glassfish:
-    image: ghcr.io/eclipse-ee4j/glassfish
-    ports:
-      - "8081:8080"
-      - "4848:4848"
     networks:
       - ws-lab1
 
