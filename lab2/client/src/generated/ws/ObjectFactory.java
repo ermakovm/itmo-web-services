@@ -9,17 +9,18 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each
- * Java content interface and Java element interface
- * generated in the ws package.
- * <p>An ObjectFactory allows you to programatically
- * construct new instances of the Java representation
- * for XML content. The Java representation of XML
- * content can consist of schema derived interfaces
- * and classes representing the binding of schema
- * type definitions, element declarations and model
- * groups.  Factory methods for each of these are
+ * This object contains factory methods for each 
+ * Java content interface and Java element interface 
+ * generated in the ws package. 
+ * <p>An ObjectFactory allows you to programatically 
+ * construct new instances of the Java representation 
+ * for XML content. The Java representation of XML 
+ * content can consist of schema derived interfaces 
+ * and classes representing the binding of schema 
+ * type definitions, element declarations and model 
+ * groups.  Factory methods for each of these are 
  * provided in this class.
+ * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -35,12 +36,14 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ws
+     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link AddMovie }
+     * 
      */
     public AddMovie createAddMovie() {
         return new AddMovie();
@@ -48,6 +51,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AddMovieResponse }
+     * 
      */
     public AddMovieResponse createAddMovieResponse() {
         return new AddMovieResponse();
@@ -55,6 +59,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteMovie }
+     * 
      */
     public DeleteMovie createDeleteMovie() {
         return new DeleteMovie();
@@ -62,6 +67,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteMovieResponse }
+     * 
      */
     public DeleteMovieResponse createDeleteMovieResponse() {
         return new DeleteMovieResponse();
@@ -69,6 +75,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetMovies }
+     * 
      */
     public GetMovies createGetMovies() {
         return new GetMovies();
@@ -76,6 +83,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetMoviesResponse }
+     * 
      */
     public GetMoviesResponse createGetMoviesResponse() {
         return new GetMoviesResponse();
@@ -83,6 +91,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UpdateMovie }
+     * 
      */
     public UpdateMovie createUpdateMovie() {
         return new UpdateMovie();
@@ -90,6 +99,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UpdateMovieResponse }
+     * 
      */
     public UpdateMovieResponse createUpdateMovieResponse() {
         return new UpdateMovieResponse();
@@ -97,6 +107,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ChangeRequest }
+     * 
      */
     public ChangeRequest createChangeRequest() {
         return new ChangeRequest();
@@ -104,6 +115,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Request }
+     * 
      */
     public Request createRequest() {
         return new Request();
@@ -111,6 +123,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RequestData }
+     * 
      */
     public RequestData createRequestData() {
         return new RequestData();
@@ -118,6 +131,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Movie }
+     * 
      */
     public Movie createMovie() {
         return new Movie();
@@ -126,8 +140,10 @@ public class ObjectFactory {
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddMovie }{@code >}
      *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link AddMovie }{@code >}
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AddMovie }{@code >}
      */
     @XmlElementDecl(namespace = "http://service.lab2.ws.itmo.mermakov.info/", name = "addMovie")
     public JAXBElement<AddMovie> createAddMovie(AddMovie value) {
@@ -137,8 +153,10 @@ public class ObjectFactory {
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddMovieResponse }{@code >}
      *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link AddMovieResponse }{@code >}
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AddMovieResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://service.lab2.ws.itmo.mermakov.info/", name = "addMovieResponse")
     public JAXBElement<AddMovieResponse> createAddMovieResponse(AddMovieResponse value) {
@@ -148,8 +166,10 @@ public class ObjectFactory {
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DeleteMovie }{@code >}
      *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link DeleteMovie }{@code >}
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeleteMovie }{@code >}
      */
     @XmlElementDecl(namespace = "http://service.lab2.ws.itmo.mermakov.info/", name = "deleteMovie")
     public JAXBElement<DeleteMovie> createDeleteMovie(DeleteMovie value) {
@@ -159,8 +179,10 @@ public class ObjectFactory {
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DeleteMovieResponse }{@code >}
      *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link DeleteMovieResponse }{@code >}
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeleteMovieResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://service.lab2.ws.itmo.mermakov.info/", name = "deleteMovieResponse")
     public JAXBElement<DeleteMovieResponse> createDeleteMovieResponse(DeleteMovieResponse value) {
@@ -170,8 +192,10 @@ public class ObjectFactory {
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetMovies }{@code >}
      *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link GetMovies }{@code >}
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetMovies }{@code >}
      */
     @XmlElementDecl(namespace = "http://service.lab2.ws.itmo.mermakov.info/", name = "getMovies")
     public JAXBElement<GetMovies> createGetMovies(GetMovies value) {
@@ -181,8 +205,10 @@ public class ObjectFactory {
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetMoviesResponse }{@code >}
      *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link GetMoviesResponse }{@code >}
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetMoviesResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://service.lab2.ws.itmo.mermakov.info/", name = "getMoviesResponse")
     public JAXBElement<GetMoviesResponse> createGetMoviesResponse(GetMoviesResponse value) {
@@ -192,8 +218,10 @@ public class ObjectFactory {
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link UpdateMovie }{@code >}
      *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link UpdateMovie }{@code >}
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateMovie }{@code >}
      */
     @XmlElementDecl(namespace = "http://service.lab2.ws.itmo.mermakov.info/", name = "updateMovie")
     public JAXBElement<UpdateMovie> createUpdateMovie(UpdateMovie value) {
@@ -203,8 +231,10 @@ public class ObjectFactory {
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link UpdateMovieResponse }{@code >}
      *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link UpdateMovieResponse }{@code >}
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateMovieResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://service.lab2.ws.itmo.mermakov.info/", name = "updateMovieResponse")
     public JAXBElement<UpdateMovieResponse> createUpdateMovieResponse(UpdateMovieResponse value) {

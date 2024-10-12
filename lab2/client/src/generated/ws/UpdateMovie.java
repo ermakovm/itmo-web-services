@@ -8,9 +8,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for updateMovie complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="updateMovie"&gt;
  *   &lt;complexContent&gt;
@@ -23,6 +23,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
+ *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "updateMovie", propOrder = {
@@ -37,8 +39,10 @@ public class UpdateMovie {
     /**
      * Gets the value of the updateId property.
      *
-     * @return possible object is
-     * {@link Long }
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     public Long getUpdateId() {
         return updateId;
@@ -47,8 +51,10 @@ public class UpdateMovie {
     /**
      * Sets the value of the updateId property.
      *
-     * @param value allowed object is
-     *              {@link Long }
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void setUpdateId(Long value) {
         this.updateId = value;
@@ -57,8 +63,10 @@ public class UpdateMovie {
     /**
      * Gets the value of the updateRequest property.
      *
-     * @return possible object is
-     * {@link ChangeRequest }
+     * @return
+     *     possible object is
+     *     {@link ChangeRequest }
+     *     
      */
     public ChangeRequest getUpdateRequest() {
         return updateRequest;
@@ -67,8 +75,10 @@ public class UpdateMovie {
     /**
      * Sets the value of the updateRequest property.
      *
-     * @param value allowed object is
-     *              {@link ChangeRequest }
+     * @param value
+     *     allowed object is
+     *     {@link ChangeRequest }
+     *     
      */
     public void setUpdateRequest(ChangeRequest value) {
         this.updateRequest = value;

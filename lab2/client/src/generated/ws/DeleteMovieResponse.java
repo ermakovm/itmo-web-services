@@ -9,9 +9,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for deleteMovieResponse complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="deleteMovieResponse"&gt;
  *   &lt;complexContent&gt;
@@ -23,6 +23,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
+ *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "deleteMovieResponse", propOrder = {
@@ -36,8 +38,10 @@ public class DeleteMovieResponse {
     /**
      * Gets the value of the return property.
      *
-     * @return possible object is
-     * {@link Boolean }
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isReturn() {
         return _return;
@@ -46,8 +50,10 @@ public class DeleteMovieResponse {
     /**
      * Sets the value of the return property.
      *
-     * @param value allowed object is
-     *              {@link Boolean }
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setReturn(Boolean value) {
         this._return = value;

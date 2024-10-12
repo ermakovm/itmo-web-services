@@ -4,10 +4,7 @@ import info.mermakov.itmo.ws.lab2.config.ConnectionUtil;
 import info.mermakov.itmo.ws.lab2.model.*;
 import lombok.extern.java.Log;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,6 +15,14 @@ public class MovieDAO {
     private static final String DEFAULT_QUERY = "select * from movies";
     private static final String QUERY = "select * from movies where ";
     private static final String DELETE_QUERY = "delete from movies where id = ?";
+    private static final String INSERT_QUERY = "insert into movies(title, year, duration_minutes, studio, director) " +
+            "values(?,?,?,?,?)";
+    private static final String UPDATE_QUERY = "update movies set title = ?, " +
+            "year = ?, " +
+            "duration_minutes = ?, " +
+            "studio = ?, " +
+            "director = ? " +
+            "where id = ?";
 
     public Boolean deleteMovie(Long movieId) {
         try (Connection connection = ConnectionUtil.getConnection();
@@ -32,11 +37,58 @@ public class MovieDAO {
     }
 
     public Boolean updateMovie(Long movieId, ChangeRequest request) {
-        return false;
+        if (request.getTitle() == null
+                || request.getDirector() == null
+                || request.getStudio() == null
+                || request.getYear() == null
+                || request.getDuration() == null
+        ) {
+            return false;
+        }
+
+        try (Connection connection = ConnectionUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(UPDATE_QUERY)) {
+            statement.setString(1, request.getTitle());
+            statement.setShort(2, request.getYear());
+            statement.setShort(3, request.getDuration());
+            statement.setString(4, request.getStudio());
+            statement.setString(5, request.getDirector());
+            statement.setLong(6, movieId);
+
+            return statement.executeUpdate() > 0;
+        } catch (SQLException exception) {
+            log.log(Level.SEVERE, exception.getMessage(), exception);
+            throw new RuntimeException(exception);
+        }
     }
 
     public Long createMovie(ChangeRequest request) {
-        return 0L;
+        if (request.getTitle() == null
+                || request.getDirector() == null
+                || request.getStudio() == null
+                || request.getYear() == null
+                || request.getDuration() == null
+        ) {
+            return -1L;
+        }
+        try (Connection connection = ConnectionUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(INSERT_QUERY, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, request.getTitle());
+            statement.setShort(2, request.getYear());
+            statement.setShort(3, request.getDuration());
+            statement.setString(4, request.getStudio());
+            statement.setString(5, request.getDirector());
+
+            statement.executeUpdate();
+            ResultSet resultSet = statement.getGeneratedKeys();
+            if (resultSet.next()) {
+                return resultSet.getLong(1);
+            }
+            return -1L;
+        } catch (SQLException exception) {
+            log.log(Level.SEVERE, exception.getMessage(), exception);
+            throw new RuntimeException(exception);
+        }
     }
 
     public List<Movie> getMovies(Request request) {

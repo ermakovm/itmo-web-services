@@ -8,9 +8,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for changeRequest complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="changeRequest"&gt;
  *   &lt;complexContent&gt;
@@ -26,6 +26,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
+ *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "changeRequest", propOrder = {
@@ -46,8 +48,10 @@ public class ChangeRequest {
     /**
      * Gets the value of the director property.
      *
-     * @return possible object is
-     * {@link String }
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDirector() {
         return director;
@@ -56,8 +60,10 @@ public class ChangeRequest {
     /**
      * Sets the value of the director property.
      *
-     * @param value allowed object is
-     *              {@link String }
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDirector(String value) {
         this.director = value;
@@ -66,8 +72,10 @@ public class ChangeRequest {
     /**
      * Gets the value of the duration property.
      *
-     * @return possible object is
-     * {@link Short }
+     * @return
+     *     possible object is
+     *     {@link Short }
+     *     
      */
     public Short getDuration() {
         return duration;
@@ -76,8 +84,10 @@ public class ChangeRequest {
     /**
      * Sets the value of the duration property.
      *
-     * @param value allowed object is
-     *              {@link Short }
+     * @param value
+     *     allowed object is
+     *     {@link Short }
+     *     
      */
     public void setDuration(Short value) {
         this.duration = value;
@@ -86,8 +96,10 @@ public class ChangeRequest {
     /**
      * Gets the value of the studio property.
      *
-     * @return possible object is
-     * {@link String }
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getStudio() {
         return studio;
@@ -96,8 +108,10 @@ public class ChangeRequest {
     /**
      * Sets the value of the studio property.
      *
-     * @param value allowed object is
-     *              {@link String }
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setStudio(String value) {
         this.studio = value;
@@ -106,8 +120,10 @@ public class ChangeRequest {
     /**
      * Gets the value of the title property.
      *
-     * @return possible object is
-     * {@link String }
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getTitle() {
         return title;
@@ -116,8 +132,10 @@ public class ChangeRequest {
     /**
      * Sets the value of the title property.
      *
-     * @param value allowed object is
-     *              {@link String }
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setTitle(String value) {
         this.title = value;
@@ -126,8 +144,10 @@ public class ChangeRequest {
     /**
      * Gets the value of the year property.
      *
-     * @return possible object is
-     * {@link Short }
+     * @return
+     *     possible object is
+     *     {@link Short }
+     *     
      */
     public Short getYear() {
         return year;
@@ -136,8 +156,10 @@ public class ChangeRequest {
     /**
      * Sets the value of the year property.
      *
-     * @param value allowed object is
-     *              {@link Short }
+     * @param value
+     *     allowed object is
+     *     {@link Short }
+     *     
      */
     public void setYear(Short value) {
         this.year = value;

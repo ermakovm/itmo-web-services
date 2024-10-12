@@ -74,13 +74,19 @@ public class Client {
     private ChangeRequest getChangeRequest() {
         System.out.println("--" + DELIMETER
                 + "Title:" + DELIMETER);
+        SCANNER.nextLine();
         String title = SCANNER.nextLine();
+
         System.out.println("Studio:" + DELIMETER);
         String studio = SCANNER.nextLine();
+
+
         System.out.println("Director:" + DELIMETER);
         String director = SCANNER.nextLine();
+
         System.out.println("Year:" + DELIMETER);
         Short year = SCANNER.nextShort();
+
         System.out.println("Duration:" + DELIMETER);
         Short duration = SCANNER.nextShort();
 

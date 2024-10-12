@@ -8,9 +8,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for addMovie complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="addMovie"&gt;
  *   &lt;complexContent&gt;
@@ -22,6 +22,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
+ *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "addMovie", propOrder = {
@@ -34,8 +36,10 @@ public class AddMovie {
     /**
      * Gets the value of the createRequest property.
      *
-     * @return possible object is
-     * {@link ChangeRequest }
+     * @return
+     *     possible object is
+     *     {@link ChangeRequest }
+     *     
      */
     public ChangeRequest getCreateRequest() {
         return createRequest;
@@ -44,8 +48,10 @@ public class AddMovie {
     /**
      * Sets the value of the createRequest property.
      *
-     * @param value allowed object is
-     *              {@link ChangeRequest }
+     * @param value
+     *     allowed object is
+     *     {@link ChangeRequest }
+     *     
      */
     public void setCreateRequest(ChangeRequest value) {
         this.createRequest = value;

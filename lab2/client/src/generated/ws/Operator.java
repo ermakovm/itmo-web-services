@@ -7,7 +7,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for operator.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <pre>
  * &lt;simpleType name="operator"&gt;
@@ -21,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
+ * 
  */
 @XmlType(name = "operator")
 @XmlEnum
