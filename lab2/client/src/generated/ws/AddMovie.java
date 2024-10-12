@@ -22,12 +22,12 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
+ * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "addMovie", propOrder = {
-        "createRequest"
+    "createRequest"
 })
 public class AddMovie {
 
@@ -35,7 +35,7 @@ public class AddMovie {
 
     /**
      * Gets the value of the createRequest property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link ChangeRequest }
@@ -47,7 +47,7 @@ public class AddMovie {
 
     /**
      * Sets the value of the createRequest property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link ChangeRequest }

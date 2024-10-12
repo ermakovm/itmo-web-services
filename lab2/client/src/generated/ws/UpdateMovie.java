@@ -23,13 +23,13 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
+ * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "updateMovie", propOrder = {
-        "updateId",
-        "updateRequest"
+    "updateId",
+    "updateRequest"
 })
 public class UpdateMovie {
 
@@ -38,7 +38,7 @@ public class UpdateMovie {
 
     /**
      * Gets the value of the updateId property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Long }
@@ -50,7 +50,7 @@ public class UpdateMovie {
 
     /**
      * Sets the value of the updateId property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Long }
@@ -62,7 +62,7 @@ public class UpdateMovie {
 
     /**
      * Gets the value of the updateRequest property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link ChangeRequest }
@@ -74,7 +74,7 @@ public class UpdateMovie {
 
     /**
      * Sets the value of the updateRequest property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link ChangeRequest }

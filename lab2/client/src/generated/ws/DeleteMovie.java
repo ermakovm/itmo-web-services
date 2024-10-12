@@ -22,12 +22,12 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
+ * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "deleteMovie", propOrder = {
-        "deleteId"
+    "deleteId"
 })
 public class DeleteMovie {
 
@@ -35,7 +35,7 @@ public class DeleteMovie {
 
     /**
      * Gets the value of the deleteId property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Long }
@@ -47,7 +47,7 @@ public class DeleteMovie {
 
     /**
      * Sets the value of the deleteId property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Long }

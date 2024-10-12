@@ -25,14 +25,14 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
+ * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "requestData", propOrder = {
-        "key",
-        "operator",
-        "value"
+    "key",
+    "operator",
+    "value"
 })
 public class RequestData {
 
@@ -44,7 +44,7 @@ public class RequestData {
 
     /**
      * Gets the value of the key property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link SearchKey }
@@ -56,7 +56,7 @@ public class RequestData {
 
     /**
      * Sets the value of the key property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link SearchKey }
@@ -68,7 +68,7 @@ public class RequestData {
 
     /**
      * Gets the value of the operator property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Operator }
@@ -80,7 +80,7 @@ public class RequestData {
 
     /**
      * Sets the value of the operator property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Operator }
@@ -92,7 +92,7 @@ public class RequestData {
 
     /**
      * Gets the value of the value property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
@@ -104,7 +104,7 @@ public class RequestData {
 
     /**
      * Sets the value of the value property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }

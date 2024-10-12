@@ -27,17 +27,17 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
+ * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "movie", propOrder = {
-        "director",
-        "duration",
-        "id",
-        "studio",
-        "title",
-        "year"
+    "director",
+    "duration",
+    "id",
+    "studio",
+    "title",
+    "year"
 })
 public class Movie {
 
@@ -50,7 +50,7 @@ public class Movie {
 
     /**
      * Gets the value of the director property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
@@ -62,7 +62,7 @@ public class Movie {
 
     /**
      * Sets the value of the director property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
@@ -74,7 +74,7 @@ public class Movie {
 
     /**
      * Gets the value of the duration property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Short }
@@ -86,7 +86,7 @@ public class Movie {
 
     /**
      * Sets the value of the duration property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Short }
@@ -98,7 +98,7 @@ public class Movie {
 
     /**
      * Gets the value of the id property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Long }
@@ -110,7 +110,7 @@ public class Movie {
 
     /**
      * Sets the value of the id property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Long }
@@ -122,7 +122,7 @@ public class Movie {
 
     /**
      * Gets the value of the studio property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
@@ -134,7 +134,7 @@ public class Movie {
 
     /**
      * Sets the value of the studio property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
@@ -146,7 +146,7 @@ public class Movie {
 
     /**
      * Gets the value of the title property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
@@ -158,7 +158,7 @@ public class Movie {
 
     /**
      * Sets the value of the title property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
@@ -170,7 +170,7 @@ public class Movie {
 
     /**
      * Gets the value of the year property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Short }
@@ -182,7 +182,7 @@ public class Movie {
 
     /**
      * Sets the value of the year property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Short }

@@ -26,16 +26,16 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
+ * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "changeRequest", propOrder = {
-        "director",
-        "duration",
-        "studio",
-        "title",
-        "year"
+    "director",
+    "duration",
+    "studio",
+    "title",
+    "year"
 })
 public class ChangeRequest {
 
@@ -47,7 +47,7 @@ public class ChangeRequest {
 
     /**
      * Gets the value of the director property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
@@ -59,7 +59,7 @@ public class ChangeRequest {
 
     /**
      * Sets the value of the director property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
@@ -71,7 +71,7 @@ public class ChangeRequest {
 
     /**
      * Gets the value of the duration property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Short }
@@ -83,7 +83,7 @@ public class ChangeRequest {
 
     /**
      * Sets the value of the duration property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Short }
@@ -95,7 +95,7 @@ public class ChangeRequest {
 
     /**
      * Gets the value of the studio property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
@@ -107,7 +107,7 @@ public class ChangeRequest {
 
     /**
      * Sets the value of the studio property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
@@ -119,7 +119,7 @@ public class ChangeRequest {
 
     /**
      * Gets the value of the title property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
@@ -131,7 +131,7 @@ public class ChangeRequest {
 
     /**
      * Sets the value of the title property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
@@ -143,7 +143,7 @@ public class ChangeRequest {
 
     /**
      * Gets the value of the year property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Short }
@@ -155,7 +155,7 @@ public class ChangeRequest {
 
     /**
      * Sets the value of the year property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Short }

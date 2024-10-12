@@ -23,12 +23,12 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
+ * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "addMovieResponse", propOrder = {
-        "_return"
+    "_return"
 })
 public class AddMovieResponse {
 
@@ -37,7 +37,7 @@ public class AddMovieResponse {
 
     /**
      * Gets the value of the return property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Long }
@@ -49,7 +49,7 @@ public class AddMovieResponse {
 
     /**
      * Sets the value of the return property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Long }

@@ -1,13 +1,12 @@
 
 package ws;
 
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -26,12 +25,12 @@ import java.util.List;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
+ * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getMoviesResponse", propOrder = {
-        "_return"
+    "_return"
 })
 public class GetMoviesResponse {
 
@@ -52,12 +51,12 @@ public class GetMoviesResponse {
      * <pre>
      *    getReturn().add(newItem);
      * </pre>
-     *
+     * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Movie }
-     *
+     * 
      * 
      */
     public List<Movie> getReturn() {

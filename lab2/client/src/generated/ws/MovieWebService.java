@@ -25,8 +25,8 @@ public interface MovieWebService {
     @WebResult(name = "return", targetNamespace = "")
     public java.lang.Boolean deleteMovie(
 
-            @WebParam(name = "deleteId", targetNamespace = "")
-            java.lang.Long deleteId
+        @WebParam(name = "deleteId", targetNamespace = "")
+        java.lang.Long deleteId
     );
 
     @WebMethod
@@ -36,10 +36,10 @@ public interface MovieWebService {
     @WebResult(name = "return", targetNamespace = "")
     public java.lang.Boolean updateMovie(
 
-            @WebParam(name = "updateId", targetNamespace = "")
-            java.lang.Long updateId,
-            @WebParam(name = "updateRequest", targetNamespace = "")
-            ws.ChangeRequest updateRequest
+        @WebParam(name = "updateId", targetNamespace = "")
+        java.lang.Long updateId,
+        @WebParam(name = "updateRequest", targetNamespace = "")
+        ws.ChangeRequest updateRequest
     );
 
     @WebMethod
@@ -49,8 +49,8 @@ public interface MovieWebService {
     @WebResult(name = "return", targetNamespace = "")
     public java.util.List<ws.Movie> getMovies(
 
-            @WebParam(name = "request", targetNamespace = "")
-            ws.Request request
+        @WebParam(name = "request", targetNamespace = "")
+        ws.Request request
     );
 
     @WebMethod
@@ -60,7 +60,7 @@ public interface MovieWebService {
     @WebResult(name = "return", targetNamespace = "")
     public java.lang.Long addMovie(
 
-            @WebParam(name = "createRequest", targetNamespace = "")
-            ws.ChangeRequest createRequest
+        @WebParam(name = "createRequest", targetNamespace = "")
+        ws.ChangeRequest createRequest
     );
 }
