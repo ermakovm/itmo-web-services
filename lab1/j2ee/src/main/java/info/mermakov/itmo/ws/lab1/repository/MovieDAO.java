@@ -58,10 +58,9 @@ public class MovieDAO {
                 }
             }
 
-
-            ResultSet resultSet = statement.executeQuery();
-
-            return getMovies(resultSet);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                return getMovies(resultSet);
+            }
         } catch (SQLException exception) {
             log.log(Level.SEVERE, exception.getMessage(), exception);
             throw new RuntimeException(exception);
@@ -69,9 +68,9 @@ public class MovieDAO {
     }
 
     private List<Movie> executeQuery() {
-        try (PreparedStatement statement = connection.prepareStatement(DEFAULT_QUERY)) {
-            ResultSet resultSet = statement.executeQuery();
-
+        try (PreparedStatement statement = connection.prepareStatement(DEFAULT_QUERY);
+             ResultSet resultSet = statement.executeQuery()
+        ) {
             return getMovies(resultSet);
         } catch (SQLException exception) {
             log.log(Level.SEVERE, exception.getMessage(), exception);
