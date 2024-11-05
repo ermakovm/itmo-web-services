@@ -6,6 +6,7 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.ws.Action;
+import jakarta.xml.ws.FaultAction;
 import jakarta.xml.ws.RequestWrapper;
 import jakarta.xml.ws.ResponseWrapper;
 
@@ -30,7 +31,7 @@ public interface MovieWebService {
     );
 
     @WebMethod
-    @Action(input = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/updateMovieRequest", output = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/updateMovieResponse")
+    @Action(input = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/updateMovieRequest", output = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/updateMovieResponse", fault = {@FaultAction(className = InvalidBodyException.class, value = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/updateMovie/Fault/InvalidBodyException")})
     @RequestWrapper(localName = "updateMovie", targetNamespace = "http://service.lab3.ws.itmo.mermakov.info/", className = "ws.UpdateMovie")
     @ResponseWrapper(localName = "updateMovieResponse", targetNamespace = "http://service.lab3.ws.itmo.mermakov.info/", className = "ws.UpdateMovieResponse")
     @WebResult(name = "return", targetNamespace = "")
@@ -40,7 +41,7 @@ public interface MovieWebService {
         java.lang.Long updateId,
         @WebParam(name = "updateRequest", targetNamespace = "")
         ws.ChangeRequest updateRequest
-    );
+    ) throws InvalidBodyException;
 
     @WebMethod
     @Action(input = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/getMoviesRequest", output = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/getMoviesResponse")
@@ -54,7 +55,7 @@ public interface MovieWebService {
     );
 
     @WebMethod
-    @Action(input = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/addMovieRequest", output = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/addMovieResponse")
+    @Action(input = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/addMovieRequest", output = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/addMovieResponse", fault = {@FaultAction(className = InvalidBodyException.class, value = "http://service.lab3.ws.itmo.mermakov.info/MovieWebService/addMovie/Fault/InvalidBodyException")})
     @RequestWrapper(localName = "addMovie", targetNamespace = "http://service.lab3.ws.itmo.mermakov.info/", className = "ws.AddMovie")
     @ResponseWrapper(localName = "addMovieResponse", targetNamespace = "http://service.lab3.ws.itmo.mermakov.info/", className = "ws.AddMovieResponse")
     @WebResult(name = "return", targetNamespace = "")
@@ -62,5 +63,5 @@ public interface MovieWebService {
 
         @WebParam(name = "createRequest", targetNamespace = "")
         ws.ChangeRequest createRequest
-    );
+    ) throws InvalidBodyException;
 }

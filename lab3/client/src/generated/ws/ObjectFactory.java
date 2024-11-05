@@ -24,6 +24,7 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _InvalidBodyException_QNAME = new QName("http://service.lab3.ws.itmo.mermakov.info/", "InvalidBodyException");
     private final static QName _AddMovie_QNAME = new QName("http://service.lab3.ws.itmo.mermakov.info/", "addMovie");
     private final static QName _AddMovieResponse_QNAME = new QName("http://service.lab3.ws.itmo.mermakov.info/", "addMovieResponse");
     private final static QName _DeleteMovie_QNAME = new QName("http://service.lab3.ws.itmo.mermakov.info/", "deleteMovie");
@@ -38,6 +39,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link MovieServiceFault }
+     * 
+     */
+    public MovieServiceFault createMovieServiceFault() {
+        return new MovieServiceFault();
     }
 
     /**
@@ -134,6 +143,19 @@ public class ObjectFactory {
      */
     public Movie createMovie() {
         return new Movie();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MovieServiceFault }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link MovieServiceFault }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://service.lab3.ws.itmo.mermakov.info/", name = "InvalidBodyException")
+    public JAXBElement<MovieServiceFault> createInvalidBodyException(MovieServiceFault value) {
+        return new JAXBElement<MovieServiceFault>(_InvalidBodyException_QNAME, MovieServiceFault.class, null, value);
     }
 
     /**

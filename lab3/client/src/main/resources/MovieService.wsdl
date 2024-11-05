@@ -24,6 +24,9 @@
     <message name="updateMovieResponse">
         <part name="parameters" element="tns:updateMovieResponse"/>
     </message>
+    <message name="InvalidBodyException">
+        <part name="fault" element="tns:InvalidBodyException"/>
+    </message>
     <message name="getMovies">
         <part name="parameters" element="tns:getMovies"/>
     </message>
@@ -48,6 +51,8 @@
                    message="tns:updateMovie"/>
             <output wsam:Action="http://service.lab3.ws.itmo.mermakov.info/MovieWebService/updateMovieResponse"
                     message="tns:updateMovieResponse"/>
+            <fault message="tns:InvalidBodyException" name="InvalidBodyException"
+                   wsam:Action="http://service.lab3.ws.itmo.mermakov.info/MovieWebService/updateMovie/Fault/InvalidBodyException"/>
         </operation>
         <operation name="getMovies">
             <input wsam:Action="http://service.lab3.ws.itmo.mermakov.info/MovieWebService/getMoviesRequest"
@@ -60,6 +65,8 @@
                    message="tns:addMovie"/>
             <output wsam:Action="http://service.lab3.ws.itmo.mermakov.info/MovieWebService/addMovieResponse"
                     message="tns:addMovieResponse"/>
+            <fault message="tns:InvalidBodyException" name="InvalidBodyException"
+                   wsam:Action="http://service.lab3.ws.itmo.mermakov.info/MovieWebService/addMovie/Fault/InvalidBodyException"/>
         </operation>
     </portType>
     <binding name="MovieWebServicePortBinding" type="tns:MovieWebService">
@@ -81,6 +88,9 @@
             <output>
                 <soap:body use="literal"/>
             </output>
+            <fault name="InvalidBodyException">
+                <soap:fault name="InvalidBodyException" use="literal"/>
+            </fault>
         </operation>
         <operation name="getMovies">
             <soap:operation soapAction=""/>
@@ -99,6 +109,9 @@
             <output>
                 <soap:body use="literal"/>
             </output>
+            <fault name="InvalidBodyException">
+                <soap:fault name="InvalidBodyException" use="literal"/>
+            </fault>
         </operation>
     </binding>
     <service name="MovieService">

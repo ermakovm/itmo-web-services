@@ -54,8 +54,13 @@ public class Client {
     private void processAddMovie() {
         ChangeRequest changeRequest = getChangeRequest();
 
-        Long result = movieService.getMovieWebServicePort().addMovie(changeRequest);
-        System.out.println("New movie added: " + result);
+        try {
+            Long result = movieService.getMovieWebServicePort().addMovie(changeRequest);
+            System.out.println("New movie added: " + result);
+        } catch (InvalidBodyException exception) {
+            System.err.println(exception.getFaultInfo().getMessage());
+        }
+
         System.out.println("--");
         printHelp();
     }
@@ -65,8 +70,12 @@ public class Client {
                 + "Movie id for update:" + DELIMETER);
         Long id = SCANNER.nextLong();
         ChangeRequest request = getChangeRequest();
-        Boolean result = movieService.getMovieWebServicePort().updateMovie(id, request);
-        System.out.println("Update result: " + result);
+        try {
+            Boolean result = movieService.getMovieWebServicePort().updateMovie(id, request);
+            System.out.println("Update result: " + result);
+        } catch (InvalidBodyException exception) {
+            System.err.println(exception.getFaultInfo().getMessage());
+        }
         System.out.println("--");
         printHelp();
     }
