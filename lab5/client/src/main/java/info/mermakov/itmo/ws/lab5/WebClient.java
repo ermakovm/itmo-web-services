@@ -33,10 +33,16 @@ public class WebClient {
         while ((userChoice = SCANNER.nextInt()) > 0) {
             switch (userChoice) {
                 case 1:
-                    Response response = client.target(uri).request(MediaType.APPLICATION_JSON_TYPE).get(Response.class);
-                    List<Movie> movies = response.readEntity(new GenericType<>() {
-                    });
-                    printMovies(movies);
+                    try (
+                            Response response = client.target(uri)
+                                    .request(MediaType.APPLICATION_JSON_TYPE)
+                                    .get(Response.class)
+                    ) {
+                        List<Movie> movies = response.readEntity(new GenericType<>() {
+                        });
+                        printMovies(movies);
+                    }
+
                     System.out.println("--");
                     printHelp();
                     break;
@@ -62,11 +68,15 @@ public class WebClient {
 
     private void processAddMovie() {
         ChangeRequest changeRequest = getChangeRequest();
-        Response response = client.target(uri).request(MediaType.APPLICATION_JSON_TYPE)
-                .post(Entity.entity(changeRequest, MediaType.APPLICATION_JSON_TYPE));
-        Long result = response.readEntity(Long.class);
 
-        System.out.println("New movie added: " + result);
+        try (Response response = client.target(uri)
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .post(Entity.entity(changeRequest, MediaType.APPLICATION_JSON_TYPE))
+        ) {
+            Long result = response.readEntity(Long.class);
+
+            System.out.println("New movie added: " + result);
+        }
         System.out.println("--");
         printHelp();
     }
@@ -77,13 +87,16 @@ public class WebClient {
         Long id = SCANNER.nextLong();
         ChangeRequest request = getChangeRequest();
 
-        Response response = client.target(uri)
-                .path(id.toString())
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .put(Entity.entity(request, MediaType.APPLICATION_JSON_TYPE));
-        Boolean result = response.readEntity(Boolean.class);
+        try (
+                Response response = client.target(uri)
+                        .path(id.toString())
+                        .request(MediaType.APPLICATION_JSON_TYPE)
+                        .put(Entity.entity(request, MediaType.APPLICATION_JSON_TYPE))
+        ) {
+            Boolean result = response.readEntity(Boolean.class);
 
-        System.out.println("Update result: " + result);
+            System.out.println("Update result: " + result);
+        }
         System.out.println("--");
         printHelp();
     }
@@ -122,12 +135,15 @@ public class WebClient {
                 + "Enter id for deletion:" + DELIMETER);
         long deleteId = SCANNER.nextLong();
 
-        Response response = client.target(uri)
-                .path(String.valueOf(deleteId))
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .delete();
-        Boolean result = response.readEntity(Boolean.class);
-        System.out.println("Deletion result: " + result);
+        try (
+                Response response = client.target(uri)
+                        .path(String.valueOf(deleteId))
+                        .request(MediaType.APPLICATION_JSON_TYPE)
+                        .delete()
+        ) {
+            Boolean result = response.readEntity(Boolean.class);
+            System.out.println("Deletion result: " + result);
+        }
         System.out.println("--");
         printHelp();
     }
@@ -171,13 +187,16 @@ public class WebClient {
         }
         request.setRequestData(requestData);
 
-        Response response = client.target(uri + "/find")
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .post(Entity.entity(request, MediaType.APPLICATION_JSON_TYPE));
-        List<Movie> movies = response.readEntity(new GenericType<>() {
-        });
+        try (
+                Response response = client.target(uri + "/find")
+                        .request(MediaType.APPLICATION_JSON_TYPE)
+                        .post(Entity.entity(request, MediaType.APPLICATION_JSON_TYPE))
+        ) {
+            List<Movie> movies = response.readEntity(new GenericType<>() {
+            });
 
-        printMovies(movies);
+            printMovies(movies);
+        }
         System.out.println("--");
         printHelp();
     }

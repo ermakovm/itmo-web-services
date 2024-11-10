@@ -1,6 +1,8 @@
 package info.mermakov.itmo.ws.lab4;
 
-import info.mermakov.itmo.ws.lab4.model.*;
+import info.mermakov.itmo.ws.lab4.model.Movie;
+import info.mermakov.itmo.ws.lab4.model.Operator;
+import info.mermakov.itmo.ws.lab4.model.SearchKey;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.MediaType;
@@ -30,11 +32,16 @@ public class WebClient {
         while ((userChoice = SCANNER.nextInt()) > 0) {
             switch (userChoice) {
                 case 1:
-                    Response response = client.target(uri).request(MediaType.APPLICATION_JSON_TYPE).get(Response.class);
+                    try (
+                            Response response = client.target(uri)
+                                    .request(MediaType.APPLICATION_JSON_TYPE)
+                                    .get(Response.class)
+                    ) {
+                        List<Movie> movies = response.readEntity(new GenericType<>() {
+                        });
+                        printMovies(movies);
+                    }
 
-                    List<Movie> movies = response.readEntity(new GenericType<>() {
-                    });
-                    printMovies(movies);
                     System.out.println("--");
                     printHelp();
                     break;
@@ -52,8 +59,6 @@ public class WebClient {
     private void processCustomRequest() {
         System.out.println("--" + DELIMETER
                 + "Available criteria: TITLE, STUDIO, DIRECTOR, YEAR, DURATION" + DELIMETER);
-        Request request = new Request();
-        List<RequestData> requestData = request.getRequestData();
         printSelectCriteria();
         int currentCriteria = SCANNER.nextInt();
 
@@ -74,26 +79,23 @@ public class WebClient {
         SCANNER.nextLine();
         String searchString = SCANNER.nextLine();
 
-        /*RequestData newData = new RequestData();
-        newData.setKey(key);
-        newData.setOperator(operator);
-        newData.setValue(searchString);
-        requestData.add(newData);*/
         System.out.println("--" + DELIMETER
                 + "Search criteria: {key=" + key + ", operator=" + operator + ", value=" + searchString + "}"
                 + DELIMETER);
 
-        Response response = client.target(uri + "/find")
-                .queryParam("key", key)
-                .queryParam("operator", operator)
-                .queryParam("data", searchString)
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .get(Response.class);
+        try (
+                Response response = client.target(uri + "/find")
+                        .queryParam("key", key)
+                        .queryParam("operator", operator)
+                        .queryParam("data", searchString)
+                        .request(MediaType.APPLICATION_JSON_TYPE)
+                        .get(Response.class)
+        ) {
+            List<Movie> movies = response.readEntity(new GenericType<>() {
+            });
+            printMovies(movies);
+        }
 
-
-        List<Movie> movies = response.readEntity(new GenericType<>() {
-        });
-        printMovies(movies);
         System.out.println("--");
         printHelp();
     }
