@@ -1,0 +1,21 @@
+services:
+  postgres-lab4:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ws_lab4
+      - POSTGRES_INITDB_ARGS='-E UTF-8'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init_db/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+    networks:
+      - ws-lab4
+
+volumes:
+  postgres_data:
+
+networks:
+  ws-lab4:

@@ -30,3 +30,12 @@ include("lab3:standalone")
 findProject(":lab3:standalone")?.name = "standalone"
 include("lab3:client")
 findProject(":lab3:client")?.name = "client"
+include("lab4")
+include("lab5")
+include("lab6")
+include("lab4:client")
+findProject(":lab4:client")?.name = "client"
+include("lab4:standalone")
+findProject(":lab4:standalone")?.name = "standalone"
+include("lab4:j2ee")
+findProject(":lab4:j2ee")?.name = "j2ee"
