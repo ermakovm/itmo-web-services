@@ -43,3 +43,7 @@ include("lab5:standalone")
 findProject(":lab5:standalone")?.name = "standalone"
 include("lab5:client")
 findProject(":lab5:client")?.name = "client"
+include("lab6:client")
+findProject(":lab6:client")?.name = "client"
+include("lab6:standalone")
+findProject(":lab6:standalone")?.name = "standalone"
