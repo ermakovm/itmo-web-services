@@ -1,26 +1,18 @@
 package info.mermakov.itmo.ws.lab4;
 
-import com.sun.net.httpserver.HttpServer;
 
-import java.io.IOException;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+
 import java.net.URI;
 
 public class Application {
-    private static final URI BASE_URI = URI.create("http://localhost:8080/rest");
+    private static final URI BASE_URI = URI.create("http://localhost:8080/rest/movies");
 
     public static void main(String[] args) {
-        HttpServer server = null;
-        try {
-
-        } catch (IOException exception) {
-            exception.printStackTrace();
-            stopServer(server);
-        }
-    }
-
-    private static void stopServer(HttpServer server) {
-        if (server != null) {
-            server.stop(0);
+        try (Client client = ClientBuilder.newClient()) {
+            WebClient webClient = new WebClient(client, BASE_URI);
+            webClient.startClient();
         }
     }
 }
