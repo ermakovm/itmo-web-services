@@ -9,6 +9,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,6 +21,8 @@ public class WebClient {
     private static final Scanner SCANNER = new Scanner(System.in);
     private final Client client;
     private final URI uri;
+    private static final String USERNAME = "test_user";
+    private static final String PASSWORD = "test_password2";
 
     public WebClient(Client client, URI uri) {
         this.uri = uri;
@@ -71,6 +74,7 @@ public class WebClient {
 
         try (Response response = client.target(uri)
                 .request(MediaType.APPLICATION_JSON_TYPE)
+                .header("Authorization", createAuthHeader())
                 .post(Entity.entity(changeRequest, MediaType.APPLICATION_JSON_TYPE))
         ) {
             if (response.getStatus() == 200) {
@@ -95,6 +99,7 @@ public class WebClient {
                 Response response = client.target(uri)
                         .path(id.toString())
                         .request(MediaType.APPLICATION_JSON_TYPE)
+                        .header("Authorization", createAuthHeader())
                         .put(Entity.entity(request, MediaType.APPLICATION_JSON_TYPE))
         ) {
             if (response.getStatus() == 200) {
@@ -148,10 +153,16 @@ public class WebClient {
                 Response response = client.target(uri)
                         .path(String.valueOf(deleteId))
                         .request(MediaType.APPLICATION_JSON_TYPE)
+                        .header("Authorization", createAuthHeader())
                         .delete()
         ) {
-            Boolean result = response.readEntity(Boolean.class);
-            System.out.println("Deletion result: " + result);
+            if (response.getStatus() == 200) {
+                Boolean result = response.readEntity(Boolean.class);
+
+                System.out.println("Deletion result: " + result);
+            } else {
+                System.out.println("Error: " + response.readEntity(String.class));
+            }
         }
         System.out.println("--");
         printHelp();
@@ -292,5 +303,11 @@ public class WebClient {
                         ", studio=" + movie.getStudio() +
                         "}";
         System.out.println(result);
+    }
+
+    private String createAuthHeader() {
+        String credentials = USERNAME + ":" + PASSWORD;
+        String base64Credentials = Base64.getEncoder().encodeToString(credentials.getBytes());
+        return "Basic " + base64Credentials;
     }
 }
