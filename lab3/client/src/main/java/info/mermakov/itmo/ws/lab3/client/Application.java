@@ -13,6 +13,7 @@ public class Application {
             URL serviceUrl = new URI("http://127.0.0.1:8080/ws/movie-service?wsdl").toURL();
 
             Client client = new Client(serviceUrl);
+
             client.startClient();
         } catch (Exception exception) {
             log.log(Level.SEVERE, exception.getMessage(), exception);

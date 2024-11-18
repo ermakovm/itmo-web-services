@@ -16,6 +16,7 @@ public class Client {
 
     public Client(URL url) {
         movieService = new MovieService(url);
+        movieService.setHandlerResolver(portInfo -> List.of(new AuthHandler()));
     }
 
     public void startClient() {
@@ -59,6 +60,8 @@ public class Client {
             System.out.println("New movie added: " + result);
         } catch (InvalidBodyException exception) {
             System.err.println(exception.getFaultInfo().getMessage());
+        } catch (AuthException exception) {
+            System.err.println(exception.getFaultInfo().getMessage());
         }
 
         System.out.println("--");
@@ -74,6 +77,8 @@ public class Client {
             Boolean result = movieService.getMovieWebServicePort().updateMovie(id, request);
             System.out.println("Update result: " + result);
         } catch (InvalidBodyException exception) {
+            System.err.println(exception.getFaultInfo().getMessage());
+        } catch (AuthException exception) {
             System.err.println(exception.getFaultInfo().getMessage());
         }
         System.out.println("--");
@@ -113,8 +118,12 @@ public class Client {
         System.out.println("--" + DELIMETER
                 + "Enter id for deletion:" + DELIMETER);
         long deleteId = SCANNER.nextLong();
-        Boolean result = movieService.getMovieWebServicePort().deleteMovie(deleteId);
-        System.out.println("Deletion result: " + result);
+        try {
+            Boolean result = movieService.getMovieWebServicePort().deleteMovie(deleteId);
+            System.out.println("Deletion result: " + result);
+        } catch (AuthException exception) {
+            System.err.println(exception.getFaultInfo().getMessage());
+        }
         System.out.println("--");
         printHelp();
     }

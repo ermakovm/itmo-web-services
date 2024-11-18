@@ -1,5 +1,6 @@
 package info.mermakov.itmo.ws.lab3.service;
 
+import info.mermakov.itmo.ws.lab3.annotation.Secured;
 import info.mermakov.itmo.ws.lab3.exception.InvalidBodyException;
 import info.mermakov.itmo.ws.lab3.exception.MovieServiceFault;
 import info.mermakov.itmo.ws.lab3.model.ChangeRequest;
@@ -25,17 +26,21 @@ public class MovieWebService {
         return movieDAO.getMovies(request);
     }
 
+    @Secured
     @WebMethod(operationName = "addMovie")
     public Long addMovie(@WebParam(name = "createRequest") ChangeRequest request) throws InvalidBodyException {
+
         validateBody(request);
         return movieDAO.createMovie(request);
     }
 
+    @Secured
     @WebMethod(operationName = "deleteMovie")
     public Boolean deleteMovie(@WebParam(name = "deleteId") Long id) {
         return movieDAO.deleteMovie(id);
     }
 
+    @Secured
     @WebMethod(operationName = "updateMovie")
     public Boolean updateMovie(
             @WebParam(name = "updateId") Long id,

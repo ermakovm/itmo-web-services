@@ -1,0 +1,114 @@
+<xs:schema xmlns:tns="http://service.lab3.ws.itmo.mermakov.info/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1.0" targetNamespace="http://service.lab3.ws.itmo.mermakov.info/">
+    <xs:element name="InvalidBodyException" nillable="true" type="tns:movieServiceFault"/>
+    <xs:element name="AuthException" nillable="true" type="tns:authFault"/>
+    <xs:element name="addMovie" type="tns:addMovie"/>
+    <xs:element name="addMovieResponse" type="tns:addMovieResponse"/>
+    <xs:element name="deleteMovie" type="tns:deleteMovie"/>
+    <xs:element name="deleteMovieResponse" type="tns:deleteMovieResponse"/>
+    <xs:element name="getMovies" type="tns:getMovies"/>
+    <xs:element name="getMoviesResponse" type="tns:getMoviesResponse"/>
+    <xs:element name="updateMovie" type="tns:updateMovie"/>
+    <xs:element name="updateMovieResponse" type="tns:updateMovieResponse"/>
+    <xs:complexType name="addMovie">
+        <xs:sequence>
+            <xs:element name="createRequest" type="tns:changeRequest" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="changeRequest">
+        <xs:sequence>
+            <xs:element name="director" type="xs:string" minOccurs="0"/>
+            <xs:element name="duration" type="xs:short" minOccurs="0"/>
+            <xs:element name="studio" type="xs:string" minOccurs="0"/>
+            <xs:element name="title" type="xs:string" minOccurs="0"/>
+            <xs:element name="year" type="xs:short" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addMovieResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="authFault">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="movieServiceFault">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="updateMovie">
+        <xs:sequence>
+            <xs:element name="updateId" type="xs:long" minOccurs="0"/>
+            <xs:element name="updateRequest" type="tns:changeRequest" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="updateMovieResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="deleteMovie">
+        <xs:sequence>
+            <xs:element name="deleteId" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="deleteMovieResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getMovies">
+        <xs:sequence>
+            <xs:element name="request" type="tns:request" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="request">
+        <xs:sequence>
+            <xs:element name="requestData" type="tns:requestData" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="requestData">
+        <xs:sequence>
+            <xs:element name="key" type="tns:searchKey" minOccurs="0"/>
+            <xs:element name="operator" type="tns:operator" minOccurs="0"/>
+            <xs:element name="value" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getMoviesResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:movie" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="movie">
+        <xs:sequence>
+            <xs:element name="director" type="xs:string" minOccurs="0"/>
+            <xs:element name="duration" type="xs:short" minOccurs="0"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="studio" type="xs:string" minOccurs="0"/>
+            <xs:element name="title" type="xs:string" minOccurs="0"/>
+            <xs:element name="year" type="xs:short" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="searchKey">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TITLE"/>
+            <xs:enumeration value="STUDIO"/>
+            <xs:enumeration value="DIRECTOR"/>
+            <xs:enumeration value="YEAR"/>
+            <xs:enumeration value="DURATION"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="operator">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="LIKE"/>
+            <xs:enumeration value="EQ"/>
+            <xs:enumeration value="GTE"/>
+            <xs:enumeration value="LTE"/>
+            <xs:enumeration value="GT"/>
+            <xs:enumeration value="LT"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,10 +1,11 @@
 
 package ws;
 
-import javax.xml.namespace.QName;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
+
+import javax.xml.namespace.QName;
 
 
 /**
@@ -25,6 +26,7 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 public class ObjectFactory {
 
     private final static QName _InvalidBodyException_QNAME = new QName("http://service.lab3.ws.itmo.mermakov.info/", "InvalidBodyException");
+    private final static QName _AuthException_QNAME = new QName("http://service.lab3.ws.itmo.mermakov.info/", "AuthException");
     private final static QName _AddMovie_QNAME = new QName("http://service.lab3.ws.itmo.mermakov.info/", "addMovie");
     private final static QName _AddMovieResponse_QNAME = new QName("http://service.lab3.ws.itmo.mermakov.info/", "addMovieResponse");
     private final static QName _DeleteMovie_QNAME = new QName("http://service.lab3.ws.itmo.mermakov.info/", "deleteMovie");
@@ -47,6 +49,13 @@ public class ObjectFactory {
      */
     public MovieServiceFault createMovieServiceFault() {
         return new MovieServiceFault();
+    }
+
+    /**
+     * Create an instance of {@link AuthFault }
+     */
+    public AuthFault createAuthFault() {
+        return new AuthFault();
     }
 
     /**
@@ -156,6 +165,19 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://service.lab3.ws.itmo.mermakov.info/", name = "InvalidBodyException")
     public JAXBElement<MovieServiceFault> createInvalidBodyException(MovieServiceFault value) {
         return new JAXBElement<MovieServiceFault>(_InvalidBodyException_QNAME, MovieServiceFault.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AuthFault }{@code >}
+     *
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AuthFault }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://service.lab3.ws.itmo.mermakov.info/", name = "AuthException")
+    public JAXBElement<AuthFault> createAuthException(AuthFault value) {
+        return new JAXBElement<AuthFault>(_AuthException_QNAME, AuthFault.class, null, value);
     }
 
     /**
