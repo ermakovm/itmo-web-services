@@ -31,6 +31,10 @@ public class UddiService {
         }
     }
 
+    public String findServiceLocation(String businessName, String serviceName) {
+        return "http://127.0.0.1:8080/ws/movie-service?wsdl";
+    }
+
     public void publish(String businessName, String serviceName, String location) {
         try {
             ZonedDateTime currentTime = ZonedDateTime.now();
