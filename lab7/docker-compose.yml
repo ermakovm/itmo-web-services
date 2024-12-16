@@ -1,0 +1,28 @@
+services:
+  postgres-lab7:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ws_lab1
+      - POSTGRES_INITDB_ARGS='-E UTF-8'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init_db/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+    networks:
+      - ws-lab7
+
+  juddi:
+    image: ericcong/juddi:3.3.3
+    ports:
+      - "8082:8080"
+    networks:
+      - ws-lab7
+
+volumes:
+  postgres_data:
+
+networks:
+  ws-lab7:
