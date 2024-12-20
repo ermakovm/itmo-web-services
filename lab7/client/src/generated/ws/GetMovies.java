@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for getMovies complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="getMovies"&gt;
  *   &lt;complexContent&gt;
@@ -22,6 +22,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
+ *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getMovies", propOrder = {
@@ -34,8 +36,10 @@ public class GetMovies {
     /**
      * Gets the value of the request property.
      *
-     * @return possible object is
-     * {@link Request }
+     * @return
+     *     possible object is
+     *     {@link Request }
+     *     
      */
     public Request getRequest() {
         return request;
@@ -44,8 +48,10 @@ public class GetMovies {
     /**
      * Sets the value of the request property.
      *
-     * @param value allowed object is
-     *              {@link Request }
+     * @param value
+     *     allowed object is
+     *     {@link Request }
+     *     
      */
     public void setRequest(Request value) {
         this.request = value;

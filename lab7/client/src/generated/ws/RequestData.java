@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for requestData complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="requestData"&gt;
  *   &lt;complexContent&gt;
@@ -25,6 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
+ *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "requestData", propOrder = {
@@ -43,8 +45,10 @@ public class RequestData {
     /**
      * Gets the value of the key property.
      *
-     * @return possible object is
-     * {@link SearchKey }
+     * @return
+     *     possible object is
+     *     {@link SearchKey }
+     *     
      */
     public SearchKey getKey() {
         return key;
@@ -53,8 +57,10 @@ public class RequestData {
     /**
      * Sets the value of the key property.
      *
-     * @param value allowed object is
-     *              {@link SearchKey }
+     * @param value
+     *     allowed object is
+     *     {@link SearchKey }
+     *     
      */
     public void setKey(SearchKey value) {
         this.key = value;
@@ -63,8 +69,10 @@ public class RequestData {
     /**
      * Gets the value of the operator property.
      *
-     * @return possible object is
-     * {@link Operator }
+     * @return
+     *     possible object is
+     *     {@link Operator }
+     *     
      */
     public Operator getOperator() {
         return operator;
@@ -73,8 +81,10 @@ public class RequestData {
     /**
      * Sets the value of the operator property.
      *
-     * @param value allowed object is
-     *              {@link Operator }
+     * @param value
+     *     allowed object is
+     *     {@link Operator }
+     *     
      */
     public void setOperator(Operator value) {
         this.operator = value;
@@ -83,8 +93,10 @@ public class RequestData {
     /**
      * Gets the value of the value property.
      *
-     * @return possible object is
-     * {@link String }
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getValue() {
         return value;
@@ -93,8 +105,10 @@ public class RequestData {
     /**
      * Sets the value of the value property.
      *
-     * @param value allowed object is
-     *              {@link String }
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setValue(String value) {
         this.value = value;

@@ -14,31 +14,37 @@ public class Application {
 
     public static void main(String[] args) {
         try {
-            System.out.println("1. Register service");
-            System.out.println("2. Find service");
+            while (true) {
+                System.out.println("1. Register service");
+                System.out.println("2. Find service");
+                System.out.println("3. Exit");
 
-            int userChoise = SCANNER.nextInt();
-            switch (userChoise) {
-                case 1:
-                    System.out.println("Enter service name:");
-                    String serviceName = SCANNER.nextLine();
-                    System.out.println("Enter business name:");
-                    String businessName = SCANNER.nextLine();
-                    System.out.println("Enter service url:");
-                    String serviceUrl = SCANNER.nextLine();
-                    UDDI_SERVICE.publish(businessName, serviceName, serviceUrl);
-                    break;
-                case 2:
-                    System.out.println("Enter service name:");
-                    String sName = SCANNER.nextLine();
-                    System.out.println("Enter business name:");
-                    String bName = SCANNER.nextLine();
-                    String location = UDDI_SERVICE.findServiceLocation(bName, sName);
+                int userChoise = SCANNER.nextInt();
+                SCANNER.nextLine();
+                switch (userChoise) {
+                    case 1:
+                        System.out.println("Enter service name:");
+                        String serviceName = SCANNER.nextLine();
+                        System.out.println("Enter business name:");
+                        String businessName = SCANNER.nextLine();
+                        System.out.println("Enter service url:");
+                        String serviceUrl = SCANNER.nextLine();
+                        UDDI_SERVICE.publish(businessName, serviceName, serviceUrl);
+                        break;
+                    case 2:
+                        System.out.println("Enter service name:");
+                        String sName = SCANNER.nextLine();
+                        System.out.println("Enter business name:");
+                        String bName = SCANNER.nextLine();
+                        String location = UDDI_SERVICE.findServiceLocation(bName, sName);
 
-                    URL serviceURL = new URI(location).toURL();
-                    Client client = new Client(serviceURL);
-                    client.startClient();
-                    break;
+                        URL serviceURL = new URI(location).toURL();
+                        Client client = new Client(serviceURL);
+                        client.startClient();
+                        break;
+                    case 3:
+                        System.exit(0);
+                }
             }
         } catch (Exception exception) {
             log.log(Level.SEVERE, exception.getMessage(), exception);
